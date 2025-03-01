@@ -26,4 +26,5 @@ RUN apt-get update \
 USER tracker
 WORKDIR /app
 
+COPY /speech_recognizer ./speech_recognizer
 COPY VERSION ./VERSION
