@@ -15,14 +15,6 @@ app = FastAPI(
     default_response_class=ORJSONResponse,
 )
 
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=["*"],
-#     allow_credentials=True,
-#     allow_methods=["*"],
-#     allow_headers=["*"],
-# )
-
 
 @app.get("/liveness", include_in_schema=False)
 async def liveness():
