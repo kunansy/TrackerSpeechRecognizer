@@ -32,4 +32,4 @@ jobs:
           context: .
           platforms: linux/amd64
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/tracker_speech_recognizer:1
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/tracker_speech_recognizer:2

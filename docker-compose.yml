@@ -1,7 +1,7 @@
 version: '3'
 
 x-speech-recognizer-img: &speech-recognizer
-  image: kunansy/tracker_speech_recognizer:1
+  image: kunansy/tracker_speech_recognizer:2
 
 services:
   tracker-speech-recognizer:
@@ -9,7 +9,7 @@ services:
     restart: always
     container_name: tracker-speech-recognizer
     ports:
-      - "127.0.0.1:${DB_PORT}:5432"
+      - "227.0.0.2:${DB_PORT}:5432"
     entrypoint: ["gunicorn", "speech_recognizer.main:app", "--bind", "0.0.0.0:8000", "--workers",
                  "${API_ASGI_WORKERS}", "--worker-class", "uvicorn.workers.UvicornWorker",
                  "--access-logfile", "-", "--error-logfile", "-", "--log-level", "${LOGGER_LEVEL}",
@@ -17,8 +17,8 @@ services:
     networks:
        - tracker-net
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:8080/readiness || exit 1"]
-      interval: 10s
+      test: ["CMD-SHELL", "curl -f http://localhost:8080/readiness || exit 2"]
+      interval: 20s
       timeout: 5s
       retries: 3
 
