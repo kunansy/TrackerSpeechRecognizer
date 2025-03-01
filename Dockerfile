@@ -17,6 +17,7 @@ RUN apt-get update \
     && ./entrypoint.sh \
     && rm poetry.lock pyproject.toml entrypoint.sh  \
     && pip uninstall -y poetry \
+    && apt-get remove gcc -y \
     && apt-get autoremove -y \
     && apt-get clean autoclean \
     && rm -rf /var/lib/apt/lists/* \
